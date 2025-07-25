@@ -1,0 +1,51 @@
+.mensaje {
+  display: flex;
+  padding: 0.5rem;
+  max-width: 70%;
+  margin-bottom: 0.3rem;
+  word-wrap: break-word;
+}
+
+.mensaje-yo {
+  align-self: flex-end;
+  justify-content: flex-end;
+  background-color: #dcf8c6; /* Verde claro de WhatsApp */
+  border-radius: 8px 0px 8px 8px;
+}
+
+.mensaje-contacto {
+  align-self: flex-start;
+  justify-content: flex-start;
+  background-color: white;
+  border-radius: 0px 8px 8px 8px;
+}
+
+.contenido-mensaje {
+  padding: 0.5rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.texto-mensaje {
+  margin-bottom: 0.3rem;
+}
+
+.info-mensaje {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #555;
+}
+
+.hora-mensaje {
+  margin-right: 0.5rem;
+}
+
+.boton-eliminar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,41 @@
+.contacto-enlace {
+  text-decoration: none;
+  color: inherit;
+}
+
+.contacto-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.2s;
+}
+
+.contacto-item:hover {
+  background-color: #f5f5f5;
+}
+
+.contacto-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.contacto-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contacto-nombre {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.contacto-estado {
+  font-size: 0.9rem;
+  color: #666;
+}

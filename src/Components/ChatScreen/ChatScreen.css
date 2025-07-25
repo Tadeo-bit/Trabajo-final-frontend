@@ -1,0 +1,42 @@
+.pantalla-chat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.cabecera-chat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f2f5;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.boton-borrar-todo {
+  background-color: #21C063;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.boton-borrar-todo:hover {
+  background-color: #21C063;
+}
+
+/* Responsive para pantallas chicas */
+@media (max-width: 768px) {
+  .pantalla-chat {
+    padding: 0.5rem;
+  }
+
+  .cabecera-chat {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

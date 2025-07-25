@@ -1,0 +1,16 @@
+/* Contenedor general de los mensajes */
+.contenedor-mensajes {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Separación entre mensajes */
+}
+
+/* Estilo cuando no hay mensajes */
+.sin-mensajes {
+  padding: 1rem;
+  font-style: italic;
+  color: #555;
+}
