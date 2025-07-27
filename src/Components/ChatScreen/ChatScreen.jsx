@@ -4,6 +4,7 @@ import NewMessageForm from '../NewMessageForm/NewMessageForm'
 import { useParams } from 'react-router'
 import { getContactById } from '../../Services/contactService'
 import './ChatScreen.css' 
+import { Link } from 'react-router-dom'
 
 const ChatScreen = () => {
 	const {contact_id} = useParams()
@@ -46,21 +47,32 @@ const ChatScreen = () => {
 	} 
 
 	return (
-		<div className="pantalla-chat">
-			<div className="cabecera-chat">
-				<h1>Mensajes</h1>
-				{messages.length > 0 && (
-					<button onClick={deleteAllMesaages} className="boton-borrar-todo">
-						Borrar todos los mensajes
-					</button>
-				)}
-		</div>
+  <div className="pantalla-chat">
+    <div className="encabezado-chat">
+      <div className="info-contacto">
+        <img
+          src={`/Images/avatar_${contact_id}.jpg`}
+          alt={contact_selected.name}
+          className="avatar-contacto"
+        />
+        <span className="nombre-contacto">{contact_selected.name}</span>
+      </div>
 
-			<MessagesList messages={messages} deleteMessageById={deleteMessageById}/>
-			
-			<NewMessageForm addNewMessage={addNewMessage}/>
-		</div>
-	)
+      <div className="acciones-chat">
+        <i className="bi bi-camera-video-fill icono-chat"></i>
+        <i className="bi bi-search icono-chat"></i>
+        <i className="bi bi-three-dots-vertical icono-chat"></i>
+      </div>
+    </div>
+
+    <MessagesList
+      messages={messages}
+      deleteMessageById={deleteMessageById}
+    />
+
+    <NewMessageForm addNewMessage={addNewMessage} />
+  </div>
+)
 }
 
 export default ChatScreen

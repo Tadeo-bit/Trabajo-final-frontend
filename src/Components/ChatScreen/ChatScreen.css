@@ -2,41 +2,88 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 1rem;
+  padding: 0;
   overflow: hidden;
 }
 
-.cabecera-chat {
+/* NUEVO HEADER */
+.encabezado-chat {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #f0f2f5;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #ccc;
+  height: 65px;
 }
 
-.boton-borrar-todo {
-  background-color: #21C063;
-  color: white;
-  padding: 0.3rem 0.8rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
+/* Parte izquierda del header: avatar + nombre */
+.info-contacto {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
 
-.boton-borrar-todo:hover {
-  background-color: #21C063;
+.avatar-contacto {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nombre-contacto {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Parte derecha: íconos */
+.acciones-chat {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icono-chat {
+  font-size: 1.2rem;
+  color: #54656f;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.icono-chat:hover {
+  color: #000;
 }
 
 /* Responsive para pantallas chicas */
 @media (max-width: 768px) {
-  .pantalla-chat {
-    padding: 0.5rem;
-  }
-
-  .cabecera-chat {
+  .encabezado-chat {
     flex-direction: column;
     align-items: flex-start;
+    height: auto;
     gap: 0.5rem;
+  }
+
+  .acciones-chat {
+    align-self: flex-end;
+  }
+}
+
+.volver-mobile {
+  display: none;
+}
+
+/* Mostrar solo en pantallas chicas */
+@media (max-width: 768px) {
+  .volver-mobile {
+    display: block;
+    margin-right: 1rem;
+  }
+
+  .encabezado-chat {
+    padding-left: 0.5rem;
+  }
+
+  .acciones-chat i {
+    font-size: 1.2rem;
   }
 }

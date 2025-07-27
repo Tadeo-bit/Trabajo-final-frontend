@@ -25,30 +25,23 @@
   overflow: hidden; /* Evita scroll en todo el contenedor */
 }
 
-/* Media query para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
   .main-layout {
-    flex-direction: column; /* Apila verticalmente */
+    flex-direction: row; /* mantenemos fila */
   }
-  .sidebar {
-    width: 100%;
-    min-width: auto;
-    height: 40vh; /* Alto fijo para el sidebar en móvil */
-    border-right: none;
-    border-bottom: 1px solid #ddd;
-  }
-  .chat {
-    width: 100%;
-    height: 60vh; /* Alto para la pantalla de chat */
-  }
-}
 
-/* Media query para pantallas muy pequeñas (móviles muy chicos) */
-@media (max-width: 400px) {
   .sidebar {
-    height: 35vh;
+    flex: 1 1 40%; /* puede crecer, achicarse y parte de un 40% */
+    min-width: 150px;
+    max-width: 250px;
+    overflow-y: auto;
+    border-right: 1px solid #ddd;
+    border-bottom: none;
   }
+
   .chat {
-    height: 65vh;
+    flex: 2 1 60%; /* ocupa más espacio que el sidebar */
+    min-width: 200px;
+    overflow-y: auto;
   }
 }
