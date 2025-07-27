@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import MessagesList from '../../Components/MessagesList/MessagesList'
 import NewMessageForm from '../NewMessageForm/NewMessageForm'
 import { useParams } from 'react-router'
 import { getContactById } from '../../Services/contactService'
-import './ChatScreen.css' // 👈 Importar el CSS aquí
+import './ChatScreen.css' 
 
 const ChatScreen = () => {
 	const {contact_id} = useParams()
 	const contact_selected = getContactById(contact_id)
 	console.log('estoy en el contacto' + contact_id)
 
-	const [messages, setMessages] = useState(contact_selected.mesagges)
+	const [messages, setMessages] = useState([])
+
+	useEffect (()=>{
+		setMessages (contact_selected.mesagges)
+	},
+		[contact_id]
+	)
 
 	const deleteMessageById = (message_id) => {
 		const new_message_list = []
@@ -48,7 +54,7 @@ const ChatScreen = () => {
 						Borrar todos los mensajes
 					</button>
 				)}
-			</div>
+		</div>
 
 			<MessagesList messages={messages} deleteMessageById={deleteMessageById}/>
 			

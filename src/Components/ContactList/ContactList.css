@@ -1,8 +1,79 @@
-.lista-contactos {
+.contactos {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  gap: 1rem;
-  overflow-y: auto;
+  padding: 0.5rem;
   height: 100%;
+  background-color: #ffffff;
 }
+
+.encabezado-contactos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo-whatsapp {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00a884; /* Verde WhatsApp */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.acciones-contactos i {
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  color: #54656f;
+}
+
+/* Buscador */
+.buscador-contactos {
+  display: flex;
+  align-items: center;
+  background-color: #f0f2f5;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  margin: 0.75rem 1rem;
+}
+
+.lupa-icono {
+  color: #54656f;
+  font-size: 1.1rem;
+  margin-right: 0.75rem;
+}
+
+.campo-busqueda {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.9rem;
+  color: #111;
+}
+
+/* Filtros */
+.filtros-contactos {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  overflow-x: auto;
+}
+
+.filtro {
+  padding: 0.4rem 0.9rem;
+  border-radius: 1.2rem;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #111;
+}
+
+.filtro.activo {
+  background-color: #005c4b;
+  color: white;
+  border-color: #005c4b;
+}
+
