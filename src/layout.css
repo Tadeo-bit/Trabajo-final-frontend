@@ -1,6 +1,5 @@
-/* Archivo: src/styles/layout.css */
 
-/* Contenedor principal de toda la app (puede ser el div que envuelve ContactScreen y ChatScreen) */
+/* Contenedor principal de toda la app  */
 .main-layout {
   display: flex;
   height: 100vh; /* Ocupa toda la altura de la ventana */
@@ -25,13 +24,15 @@
   overflow: hidden; /* Evita scroll en todo el contenedor */
 }
 
+/* --- Responsive --- */
+
 @media (max-width: 768px) {
   .main-layout {
     flex-direction: row; /* mantenemos fila */
   }
 
   .sidebar {
-    flex: 1 1 40%; /* puede crecer, achicarse y parte de un 40% */
+    flex: 1 1 40%;
     min-width: 150px;
     max-width: 250px;
     overflow-y: auto;
@@ -40,8 +41,46 @@
   }
 
   .chat {
-    flex: 2 1 60%; /* ocupa más espacio que el sidebar */
+    flex: 2 1 60%;
     min-width: 200px;
     overflow-y: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sidebar-oculto {
+    display: none;
+  }
+
+  .chat {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Ocultar el chat completo (pantalla de inicio) cuando no hay contacto seleccionado */
+  .chat.chat-oculto {
+    display: none !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    flex: 0 0 0 !important;
+  }
+
+  /* Mostrar chat si hay contacto */
+  .chat-visible {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
   }
 }

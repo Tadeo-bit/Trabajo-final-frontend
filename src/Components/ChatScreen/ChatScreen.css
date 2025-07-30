@@ -54,33 +54,37 @@
   color: #000;
 }
 
-/* Responsive para pantallas chicas */
-@media (max-width: 768px) {
+/* Botón de volver (oculto por defecto) */
+.boton-volver-movil {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.3rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 480px) {
+  .boton-volver-movil {
+    display: block;
+  }
+
   .encabezado-chat {
     flex-direction: column;
     align-items: flex-start;
     height: auto;
     gap: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .info-contacto {
+    gap: 0.5rem;
   }
 
   .acciones-chat {
     align-self: flex-end;
-  }
-}
-
-.volver-mobile {
-  display: none;
-}
-
-/* Mostrar solo en pantallas chicas */
-@media (max-width: 768px) {
-  .volver-mobile {
-    display: block;
-    margin-right: 1rem;
-  }
-
-  .encabezado-chat {
-    padding-left: 0.5rem;
+    gap: 0.5rem;
   }
 
   .acciones-chat i {

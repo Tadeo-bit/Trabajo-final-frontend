@@ -5,8 +5,10 @@ import { useParams } from 'react-router'
 import { getContactById } from '../../Services/contactService'
 import './ChatScreen.css' 
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const ChatScreen = () => {
+	const navigate = useNavigate()
 	const {contact_id} = useParams()
 	const contact_selected = getContactById(contact_id)
 	console.log('estoy en el contacto' + contact_id)
@@ -49,6 +51,13 @@ const ChatScreen = () => {
 	return (
   <div className="pantalla-chat">
     <div className="encabezado-chat">
+      {/* Botón de regreso (solo visible en mobile) */}
+      <button className="boton-volver-movil" onClick={() => navigate('/')}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#54656f" viewBox="0 0 16 16">
+          <path fillRule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H3.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L3.707 7.5H14.5a.5.5 0 0 1 .5.5z"/>
+        </svg>
+      </button>
+
       <div className="info-contacto">
         <img
           src={`/Images/avatar_${contact_id}.jpg`}
