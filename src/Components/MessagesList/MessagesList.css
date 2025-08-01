@@ -1,16 +1,22 @@
 /* Contenedor general de los mensajes */
 .contenedor-mensajes {
   flex: 1;
-  padding: 1rem;
+  min-height: 0; /* para que no empuje al form cuando está vacío */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem; /* Separación entre mensajes */
+  gap: 0.5rem;
 }
+
 
 /* Estilo cuando no hay mensajes */
 .sin-mensajes {
   padding: 1rem;
   font-style: italic;
   color: #555;
+}
+
+.contenedor-mensajes:empty::before {
+  content: '';
+  flex: 1;
 }

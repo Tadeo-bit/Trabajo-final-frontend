@@ -1,12 +1,18 @@
-# React + Vite
+##Descripción del desafío
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un clon funcional de WhatsApp Web realizado como trabajo final del curso de Frontend de la UTN Buenos Aires (e-learning). El objetivo fue replicar la experiencia de uso de la app original, desarrollando funcionalidades de mensajería entre contactos sin usar estado global ni contextos (ya que todavía no los incorporé a mi proceso de aprendizaje) , y estilizando los componentes para lograr un diseño visual similar. 
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+##Librerías utilizadas
+React Router DOM: para navegación entre contactos y pantallas.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+React: como librería principal para la construcción de componentes.
+
+CSS: para estilos modulares por componente, replicando el diseño de WhatsApp Web.
+
+##Dificultades presentadas
+
+Una de las principales dificultades estuvo relacionada con la implementación del diseño responsive para dispositivos móviles. El objetivo era lograr que, en pantallas pequeñas, solo se mostrara la lista de contactos si no había uno seleccionado, y que desapareciera por completo la pantalla de inicio (imagen, textos y botón de descarga).
+
+Inicialmente, la pantalla de inicio se ocultaba solo parcialmente, quedando un espacio vacío visible en resoluciones menores a 480px. Luego de revisar la lógica condicional en el componente Main y ajustar las media queries en el archivo layout.css, se resolvió el problema controlando explícitamente el renderizado del div del chat en base al ancho de pantalla y al contacto seleccionado.
