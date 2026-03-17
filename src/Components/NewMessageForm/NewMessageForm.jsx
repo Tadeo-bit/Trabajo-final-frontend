@@ -1,24 +1,28 @@
 import React from 'react'
 import './NewMessageForm.css' 
 
-const NewMessageForm = ({ addNewMessage }) => {
+const NewMessageForm = ({ addNewMessage, draftValue, onDraftChange }) => {
+
   const handleSubmitMessageForm = (event) => {
     event.preventDefault()
-    let new_message_text = event.target.message.value
-    addNewMessage(new_message_text)
-    event.target.message.value = ''
+
+    addNewMessage(draftValue)
+
+    onDraftChange('') // limpiar borrador
   }
 
   return (
     <div className="formulario-nuevo-mensaje-contenedor">
       <form className="formulario-nuevo-mensaje" onSubmit={handleSubmitMessageForm}>
+        
         <input
           type="text"
           placeholder="Escribe un mensaje..."
-          id="message"
-          name="message"
           className="input-mensaje"
+          value={draftValue}
+          onChange={(e) => onDraftChange(e.target.value)}
         />
+
         <button type="submit" className="boton-enviar">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,11 +34,11 @@ const NewMessageForm = ({ addNewMessage }) => {
             <path d="M2 21l21-9L2 3v7l15 2-15 2v7z" />
           </svg>
         </button>
+
       </form>
     </div>
   )
 }
 
 export default NewMessageForm
-
 

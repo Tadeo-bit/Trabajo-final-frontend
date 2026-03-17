@@ -14,6 +14,7 @@ const ChatScreen = () => {
 	console.log('estoy en el contacto' + contact_id)
 
 	const [messages, setMessages] = useState([])
+	const [drafts, setDrafts] = useState({})
 
 	useEffect (()=>{
 		setMessages (contact_selected.mesagges)
@@ -48,6 +49,13 @@ const ChatScreen = () => {
 		setMessages([])
 	} 
 
+	const handleDraftChange = (text) => {
+  setDrafts(prev => ({
+    ...prev,
+    [contact_id]: text
+  }))
+}
+
 	return (
   <div className="pantalla-chat">
     <div className="encabezado-chat">
@@ -79,7 +87,11 @@ const ChatScreen = () => {
       deleteMessageById={deleteMessageById}
     />
 
-    <NewMessageForm addNewMessage={addNewMessage} />
+    <NewMessageForm
+  	addNewMessage={addNewMessage}
+    draftValue={drafts[contact_id] || ''}
+    onDraftChange={handleDraftChange}
+    />
   </div>
 )
 }
