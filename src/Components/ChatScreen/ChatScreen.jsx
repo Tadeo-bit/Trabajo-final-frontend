@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react'
 import MessagesList from '../../Components/MessagesList/MessagesList'
 import NewMessageForm from '../NewMessageForm/NewMessageForm'
 import { useParams } from 'react-router'
-import { getContactById } from '../../Services/contactService'
 import './ChatScreen.css' 
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 
-const ChatScreen = () => {
+const ChatScreen = ({ contacts }) => {
 	const navigate = useNavigate()
 	const {contact_id} = useParams()
-	const contact_selected = getContactById(contact_id)
+	const contact_selected = contacts.find(
+    c => Number(c.id) === Number(contact_id)
+    )
 	console.log('estoy en el contacto' + contact_id)
 
 	const [messages, setMessages] = useState([])
@@ -33,17 +34,21 @@ const ChatScreen = () => {
 	}
 	
 	const addNewMessage = (text) => {
-		const new_message = {
-			emisor: 'Yo',
-			hora: '11:10',
-			texto: text,
-			status: 'no-visto',
-			id: messages.length + 1
-		}
-		const cloned_messages_list = [...messages]
-		cloned_messages_list.push(new_message)
-		setMessages(cloned_messages_list)
-	}
+    const new_message = {
+    emisor: 'Yo',
+    hora: '11:10',
+    texto: text,
+    status: 'no-visto',
+    id: Date.now() 
+    }
+	// 1. actualizar messages correctamente
+    setMessages(prev => [...prev, new_message])
+	// 2. limpiar draft del contacto actual
+    setDrafts(prev => ({
+    ...prev,
+    [contact_id]: ''
+    }))
+    }
 
 	const deleteAllMesaages = () => {
 		setMessages([])

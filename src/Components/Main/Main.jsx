@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ContactScreen from '../ContactScreen/ContactScreen';
 import ChatScreen from '../ChatScreen/ChatScreen';
+import { getContactList } from '../../Services/contactService'
 import './Main.css';
 
 const Main = () => {
   const { contact_id } = useParams();
   const [esMobile, setEsMobile] = useState(window.innerWidth <= 480);
+  const [contacts, setContacts] = useState(getContactList())
 
   useEffect(() => {
     const manejarResize = () => {
@@ -26,7 +28,9 @@ const Main = () => {
 
       {mostrarChat && contact_id && (
         <div className="chat">
-          <ChatScreen />
+          <ChatScreen 
+          contacts={contacts} setContacts={setContacts}
+          />
         </div>
       )}
 
