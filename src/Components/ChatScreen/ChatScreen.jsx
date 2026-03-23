@@ -6,49 +6,63 @@ import './ChatScreen.css'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 
-const ChatScreen = ({ contacts }) => {
+const ChatScreen = ({ contacts, setContacts }) => {
 	const navigate = useNavigate()
 	const {contact_id} = useParams()
 	const contact_selected = contacts.find(
     c => Number(c.id) === Number(contact_id)
     )
 	console.log('estoy en el contacto' + contact_id)
+  
+  const messages = contact_selected?.messages || []  
+	
+  const [drafts, setDrafts] = useState({})
 
-	const [messages, setMessages] = useState([])
-	const [drafts, setDrafts] = useState({})
 
-	useEffect (()=>{
-		setMessages (contact_selected.mesagges)
-	},
-		[contact_id]
-	)
 
 	const deleteMessageById = (message_id) => {
-		const new_message_list = []
-		for(const message of messages){
-			if(message.id !== message_id){
-				new_message_list.push(message)
-			}
-		} 
-		setMessages(new_message_list)
-	}
+  setContacts(prev =>
+    prev.map(contact => {
+      if (Number(contact.id) === Number(contact_id)) {
+        return {
+          ...contact,
+          messages: (contact.messages || []).filter(
+            m => m.id !== message_id
+          )
+        }
+      }
+      return contact
+    })
+  )
+  
+  }
 	
 	const addNewMessage = (text) => {
-    const new_message = {
+  const new_message = {
     emisor: 'Yo',
     hora: '11:10',
     texto: text,
     status: 'no-visto',
-    id: Date.now() 
-    }
-	// 1. actualizar messages correctamente
-    setMessages(prev => [...prev, new_message])
-	// 2. limpiar draft del contacto actual
-    setDrafts(prev => ({
+    id: Date.now()
+  }
+
+  setContacts(prev =>
+    prev.map(contact => {
+      if (Number(contact.id) === Number(contact_id)) {
+        return {
+          ...contact,
+          messages: [...(contact.messages || []), new_message]
+        }
+      }
+      return contact
+    })
+  )
+
+  setDrafts(prev => ({
     ...prev,
     [contact_id]: ''
-    }))
-    }
+  }))
+}
 
 	const deleteAllMesaages = () => {
 		setMessages([])

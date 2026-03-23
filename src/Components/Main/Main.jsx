@@ -20,10 +20,25 @@ const Main = () => {
 
   const mostrarChat = contact_id || !esMobile;
 
+  const moveContactToTop = (contact_id) => {
+  setContacts(prev => {
+
+    const selected = prev.find(c => c.id === contact_id)
+
+    const resto = prev.filter(c => c.id !== contact_id)
+
+    return [selected, ...resto]
+
+  })
+}
+
   return (
     <div className="main-layout">
       <div className={`sidebar ${contact_id ? 'sidebar-oculto' : ''}`}>
-        <ContactScreen />
+        <ContactScreen 
+        contacts={contacts}
+        moveContactToTop={moveContactToTop}
+        />
       </div>
 
       {mostrarChat && contact_id && (

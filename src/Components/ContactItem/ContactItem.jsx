@@ -2,9 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ContactItem.css'; 
 
-const ContactItem = ({ contact }) => {
+const ContactItem = ({ contact, moveContactToTop }) => {
     return (
-        <Link to={`/contact/${contact.id}`} className="contacto-enlace">
+        <Link to={`/contact/${contact.id}`} 
+        className="contacto-enlace" 
+        onClick={() => moveContactToTop(contact.id)} 
+        >
             <div className="contacto-item">
                 <img
                     className="contacto-avatar"

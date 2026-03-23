@@ -4,18 +4,16 @@ import { getContactList } from '../../Services/contactService';
 
 
 
-const ContactScreen = () => {
+const ContactScreen = ({ contacts, moveContactToTop }) => {
 
-  const contacts = getContactList () /*llamo a los contactos que vienen de la función getContactList 
-    y después se los paso como valor de estado inicial en useState. En vez de llamarlo desde 
-    el array, lo llamo desde la función get..*/
-  const [contactsState, setContactsList] = useState(contacts);
-
-    return (
-        <div>
-            <ContactList contacts={contactsState} />
-        </div>
-    );
+  return (
+    <div>
+      <ContactList 
+        contacts={contacts}
+        moveContactToTop={moveContactToTop}
+      />
+    </div>
+  )
 };
 
 export default ContactScreen;

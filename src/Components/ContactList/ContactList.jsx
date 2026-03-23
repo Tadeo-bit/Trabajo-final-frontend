@@ -2,7 +2,7 @@ import React from 'react';
 import ContactItem from '../ContactItem/ContactItem';
 import './ContactList.css';
 
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts, moveContactToTop }) => {
   return (
     <div className="contactos">
       {/* Encabezado */}
@@ -35,7 +35,7 @@ const ContactList = ({ contacts }) => {
       {/* Lista de contactos */}
       <div className="lista-contactos">
         {contacts.map((contact) => (
-          <ContactItem key={contact.id} contact={contact} />
+          <ContactItem key={contact.id} contact={contact} moveContactToTop={moveContactToTop} />
         ))}
       </div>
     </div>
