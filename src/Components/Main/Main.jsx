@@ -8,7 +8,18 @@ import './Main.css';
 const Main = () => {
   const { contact_id } = useParams();
   const [esMobile, setEsMobile] = useState(window.innerWidth <= 480);
-  const [contacts, setContacts] = useState(getContactList())
+
+  const data = localStorage.getItem("contacts")
+
+  const initialContacts = data
+  ? JSON.parse(data)
+  : getContactList()
+
+  const [contacts, setContacts] = useState(initialContacts)
+
+  useEffect(() => {
+  localStorage.setItem("contacts", JSON.stringify(contacts))
+   }, [contacts])
 
   useEffect(() => {
     const manejarResize = () => {
