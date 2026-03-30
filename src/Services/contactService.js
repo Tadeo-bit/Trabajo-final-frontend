@@ -224,6 +224,38 @@ const contacts = [
   }
 ];
 
+export const moveContactToTop = (contacts, contact_id) => {
+  const selected = contacts.find(c => c.id === contact_id)
+  const rest = contacts.filter(c => c.id !== contact_id)
+  return [selected, ...rest]
+}
+
+export const addNewMessage = (contacts, contact_id, new_message) => {
+  return contacts.map(contact => {
+    if (Number(contact.id) === Number(contact_id)) {
+      return {
+        ...contact,
+        messages: [...(contact.messages || []), new_message]
+      }
+    }
+    return contact
+  })
+}
+
+export const deleteMessageById = (contacts, contact_id, message_id) => {
+  return contacts.map(contact => {
+    if (Number(contact.id) === Number(contact_id)) {
+      return {
+        ...contact,
+        messages: (contact.messages || []).filter(
+          m => m.id !== message_id
+        )
+      }
+    }
+    return contact
+  })
+}
+
 export const getContactList = () => {
     return contacts
 }

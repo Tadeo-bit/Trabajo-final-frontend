@@ -5,6 +5,8 @@ import { useParams } from 'react-router'
 import './ChatScreen.css' 
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
+import { deleteMessageById as deleteMessageByIdService } from '../../Services/contactService'
+import { addNewMessage as addNewMessageService } from '../../Services/contactService'
 
 const ChatScreen = ({ contacts, setContacts }) => {
 	const navigate = useNavigate()
@@ -22,19 +24,8 @@ const ChatScreen = ({ contacts, setContacts }) => {
 
 	const deleteMessageById = (message_id) => {
   setContacts(prev =>
-    prev.map(contact => {
-      if (Number(contact.id) === Number(contact_id)) {
-        return {
-          ...contact,
-          messages: (contact.messages || []).filter(
-            m => m.id !== message_id
-          )
-        }
-      }
-      return contact
-    })
+    deleteMessageByIdService(prev, contact_id, message_id)
   )
-  
   }
 	
 	const addNewMessage = (text) => {
@@ -47,22 +38,14 @@ const ChatScreen = ({ contacts, setContacts }) => {
   }
 
   setContacts(prev =>
-    prev.map(contact => {
-      if (Number(contact.id) === Number(contact_id)) {
-        return {
-          ...contact,
-          messages: [...(contact.messages || []), new_message]
-        }
-      }
-      return contact
-    })
+  addNewMessageService(prev, contact_id, new_message)
   )
 
   setDrafts(prev => ({
     ...prev,
     [contact_id]: ''
   }))
-}
+  }
 
 	const deleteAllMesaages = () => {
 		setMessages([])

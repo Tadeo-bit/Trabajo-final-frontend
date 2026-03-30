@@ -4,6 +4,7 @@ import ContactScreen from '../ContactScreen/ContactScreen';
 import ChatScreen from '../ChatScreen/ChatScreen';
 import { getContactList } from '../../Services/contactService'
 import './Main.css';
+import { moveContactToTop as moveContactToTopService } from '../../Services/contactService'
 
 const Main = () => {
   const { contact_id } = useParams();
@@ -32,16 +33,8 @@ const Main = () => {
   const mostrarChat = contact_id || !esMobile;
 
   const moveContactToTop = (contact_id) => {
-  setContacts(prev => {
-
-    const selected = prev.find(c => c.id === contact_id)
-
-    const resto = prev.filter(c => c.id !== contact_id)
-
-    return [selected, ...resto]
-
-  })
-}
+  setContacts(prev => moveContactToTopService(prev, contact_id))
+  }
 
   return (
     <div className="main-layout">
