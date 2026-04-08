@@ -6,6 +6,7 @@ const contacts = [
     avatar: '/Images/avatar_1.jpg',
     last_connection: '15:53',
     connection_status: 'ofline',
+    unread: 2,
     messages: [
   {
 		emisor: 'YO',
@@ -44,6 +45,7 @@ const contacts = [
     avatar: '/Images/avatar_2.jpg',
     last_connection: '15:55',
     connection_status: 'online',
+    unread: 0,
     messages: [
   {
 		emisor: 'YO',
@@ -89,6 +91,7 @@ const contacts = [
     avatar: '/Images/avatar_3.jpg',
     last_connection: '12:45',
     connection_status: 'online',
+    unread: 0,
     messages: [
       { emisor: 'YO', hora: '09:01', id: 1, texto: 'Buen día! ¿Cómo vas con el proyecto?', status: 'visto' },
       { emisor: 'OTRO', hora: '09:03', id: 2, texto: 'Buen día! Ayer avancé con los estilos del login', status: 'visto' },
@@ -109,6 +112,7 @@ const contacts = [
     avatar: '/Images/avatar_4.jpg',
     last_connection: '10:22',
     connection_status: 'ofline',
+    unread: 0,
     messages: [
       { emisor: 'YO', hora: '18:30', id: 1, texto: '¿Probaste la API de clima que te pasé?', status: 'visto' },
       { emisor: 'OTRO', hora: '18:32', id: 2, texto: 'Sí! Es bastante clara, me gustó', status: 'visto' },
@@ -129,6 +133,7 @@ const contacts = [
     avatar: '/Images/avatar_5.jpg',
     last_connection: '08:10',
     connection_status: 'online',
+    unread: 0,
     messages: [
       { emisor: 'YO', hora: '13:00', id: 1, texto: '¿Ya arrancaste con el TP final?', status: 'visto' },
       { emisor: 'OTRO', hora: '13:01', id: 2, texto: 'Sí, estoy haciendo un to-do con Firebase', status: 'visto' },
@@ -149,6 +154,7 @@ const contacts = [
     avatar: '/Images/avatar_6.jpg',
     last_connection: '16:30',
     connection_status: 'online',
+    unread: 0,
     messages: [
       { emisor: 'YO', hora: '14:01', id: 1, texto: '¿Ya hiciste el portfolio en React?', status: 'visto' },
       { emisor: 'OTRO', hora: '14:02', id: 2, texto: 'Sí! Lo subí a Netlify hace unos días', status: 'visto' },
@@ -169,6 +175,7 @@ const contacts = [
     avatar: '/Images/avatar_7.jpg',
     last_connection: '22:10',
     connection_status: 'ofline',
+    unread: 0,
     messages: [
       { emisor: 'YO', hora: '21:00', id: 1, texto: '¿Pudiste solucionar el error del map?', status: 'visto' },
       { emisor: 'OTRO', hora: '21:01', id: 2, texto: 'Sí, era porque el array venía undefined', status: 'visto' },
@@ -189,6 +196,7 @@ const contacts = [
     avatar: '/Images/avatar_8.jpg',
     last_connection: '07:50',
     connection_status: 'ofline',
+    unread: 0,
     messages: [
       { emisor: 'YO', hora: '10:00', id: 1, texto: '¿Terminaste la parte del formulario?', status: 'visto' },
       { emisor: 'OTRO', hora: '10:01', id: 2, texto: 'Sí, con validaciones en JS puro', status: 'visto' },
@@ -209,6 +217,7 @@ const contacts = [
     avatar: '/Images/avatar_9.jpg',
     last_connection: '13:40',
     connection_status: 'online',
+    unread: 0,
     messages: [
       { emisor: 'YO', hora: '11:00', id: 1, texto: '¿Cómo venís con Node?', status: 'visto' },
       { emisor: 'OTRO', hora: '11:01', id: 2, texto: 'Re bien. Estoy armando una API REST con Express', status: 'visto' },
@@ -224,13 +233,10 @@ const contacts = [
   }
 ];
 
-export const updateContact = (contacts, contact_id, transformMessages) => {
+export const updateContact = (contacts, contact_id, updateFn) => {
   return contacts.map(contact => {
     if (Number(contact.id) === Number(contact_id)) {
-      return {
-        ...contact,
-        messages: transformMessages(contact.messages || [])
-      }
+      return updateFn(contact)
     }
     return contact
   })
@@ -245,7 +251,24 @@ export const addNewMessage = (contacts, contact_id, new_message) => {
   return updateContact(
     contacts,
     contact_id,
-    (messages) => [...messages, new_message]
+    (contact) => ({
+      ...contact,
+      messages: [...(contact.messages || []), new_message],
+      unread: new_message.emisor !== 'YO'
+        ? (contact.unread || 0) + 1
+        : contact.unread || 0
+    })
+  )
+}
+
+export const resetUnread = (contacts, contact_id) => {
+  return updateContact(
+    contacts,
+    contact_id,
+    (contact) => ({
+      ...contact,
+      unread: 0
+    })
   )
 }
 
