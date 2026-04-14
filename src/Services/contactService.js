@@ -112,7 +112,7 @@ const contacts = [
     avatar: '/Images/avatar_4.jpg',
     last_connection: '10:22',
     connection_status: 'ofline',
-    unread: 0,
+    unread: 10,
     messages: [
       { emisor: 'YO', hora: '18:30', id: 1, texto: '¿Probaste la API de clima que te pasé?', status: 'visto' },
       { emisor: 'OTRO', hora: '18:32', id: 2, texto: 'Sí! Es bastante clara, me gustó', status: 'visto' },
@@ -133,7 +133,7 @@ const contacts = [
     avatar: '/Images/avatar_5.jpg',
     last_connection: '08:10',
     connection_status: 'online',
-    unread: 0,
+    unread: 2,
     messages: [
       { emisor: 'YO', hora: '13:00', id: 1, texto: '¿Ya arrancaste con el TP final?', status: 'visto' },
       { emisor: 'OTRO', hora: '13:01', id: 2, texto: 'Sí, estoy haciendo un to-do con Firebase', status: 'visto' },
@@ -217,7 +217,7 @@ const contacts = [
     avatar: '/Images/avatar_9.jpg',
     last_connection: '13:40',
     connection_status: 'online',
-    unread: 0,
+    unread: 3,
     messages: [
       { emisor: 'YO', hora: '11:00', id: 1, texto: '¿Cómo venís con Node?', status: 'visto' },
       { emisor: 'OTRO', hora: '11:01', id: 2, texto: 'Re bien. Estoy armando una API REST con Express', status: 'visto' },
@@ -276,7 +276,12 @@ export const deleteMessageById = (contacts, contact_id, message_id) => {
   return updateContact(
     contacts,
     contact_id,
-    (messages) => messages.filter(m => m.id !== message_id)
+    (contact) => ({
+      ...contact,
+      messages: (contact.messages || []).filter(
+        m => m.id !== message_id
+      )
+    })
   )
 }
 

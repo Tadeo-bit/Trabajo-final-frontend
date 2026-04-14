@@ -13,7 +13,10 @@ const Main = () => {
   const data = localStorage.getItem("contacts")
 
   const initialContacts = data
-  ? JSON.parse(data)
+  ? JSON.parse(data).map(contact => ({
+      ...contact,
+      unread: contact.unread ?? 0
+    }))
   : getContactList()
 
   const [contacts, setContacts] = useState(initialContacts)

@@ -5,7 +5,7 @@
 
 .contacto-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 0.75rem;
   border-bottom: 1px solid #e0e0e0;
@@ -16,12 +16,14 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex:1;
+  min-width: 0;  
 }
 
 .contacto-unread {
   background-color: #25d366;
   color: white;
-  border-radius: 50%;
+  border-radius: 999px;
   
   min-width: 20px;
   height: 20px;
@@ -32,6 +34,10 @@
 
   font-size: 12px;
   font-weight: bold;
+  padding: 0 6px;
+  margin-left: 0.5rem;
+  margin-top: 4px;
+  align-self: flex-end;
 }
 
 .contacto-item:hover {
@@ -50,15 +56,41 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 1;
+  min-width: 0;
 }
 
 .contacto-nombre {
   font-size: 1.1rem;
   font-weight: bold;
-  margin-bottom: 0.3rem;
+  margin: 0; 
+  flex: 1;
 }
 
 .contacto-estado {
   font-size: 0.9rem;
   color: #666;
+}
+
+.contacto-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.contacto-hora {
+  font-size: 0.8rem;
+  color: #667781;
+  white-space: nowrap; /* evita saltos */
+  margin-left: auto;
+}
+
+.contacto-mensaje {
+  font-size: 0.9rem;
+  color: #667781;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
