@@ -5,43 +5,22 @@
 
 .contacto-item {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
   padding: 0.75rem;
   border-bottom: 1px solid #e0e0e0;
   transition: background-color 0.2s;
 }
 
+.contacto-item:hover {
+  background-color: #f5f5f5;
+}
+
 .contacto-left {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  flex:1;
-  min-width: 0;  
-}
-
-.contacto-unread {
-  background-color: #25d366;
-  color: white;
-  border-radius: 999px;
-  
-  min-width: 20px;
-  height: 20px;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 12px;
-  font-weight: bold;
-  padding: 0 6px;
-  margin-left: 0.5rem;
-  margin-top: 4px;
-  align-self: flex-end;
-}
-
-.contacto-item:hover {
-  background-color: #f5f5f5;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .contacto-avatar {
@@ -49,41 +28,41 @@
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 1rem;
 }
 
 .contacto-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   flex: 1;
   min-width: 0;
+}
+
+/* FILA 1 */
+.contacto-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .contacto-nombre {
   font-size: 1.1rem;
   font-weight: bold;
-  margin: 0; 
-  flex: 1;
-}
-
-.contacto-estado {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.contacto-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
+  margin: 0;
 }
 
 .contacto-hora {
   font-size: 0.8rem;
   color: #667781;
-  white-space: nowrap; /* evita saltos */
-  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* FILA 2 */
+.contacto-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .contacto-mensaje {
@@ -93,4 +72,21 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.contacto-unread {
+  background-color: #25d366;
+  color: white;
+  border-radius: 999px;
+
+  min-width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0 6px;
 }

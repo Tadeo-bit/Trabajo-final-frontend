@@ -10,6 +10,15 @@ const Main = () => {
   const { contact_id } = useParams();
   const [esMobile, setEsMobile] = useState(window.innerWidth <= 480);
 
+  const STORAGE_VERSION = "v2";
+
+  const savedVersion = localStorage.getItem("version");
+
+  if (savedVersion !== STORAGE_VERSION) {
+  localStorage.removeItem("contacts");
+  localStorage.setItem("version", STORAGE_VERSION);
+  }
+  
   const data = localStorage.getItem("contacts")
 
   const initialContacts = data
