@@ -2,7 +2,9 @@ import React from 'react'
 import './Message.css'
 
 const Message = ({ emisor, hora, id, texto, status, deleteMessageById }) => {
-	const claseMensaje = emisor === 'YO' ? 'mensaje mensaje-yo' : 'mensaje mensaje-contacto'
+	const claseMensaje = emisor?.toUpperCase() === 'YO'
+    ? 'mensaje mensaje-yo'
+    : 'mensaje mensaje-contacto'
 
 	return (
 		<div className={claseMensaje}>

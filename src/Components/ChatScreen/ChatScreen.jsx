@@ -14,29 +14,25 @@ const ChatScreen = ({ contacts, setContacts }) => {
 	const contact_selected = contacts.find(
     c => Number(c.id) === Number(contact_id)
     )
-	console.log('estoy en el contacto' + contact_id)
-  
+
   const messages = contact_selected?.messages || []  
 	
   const [drafts, setDrafts] = useState({})
-
-
 
 	const deleteMessageById = (message_id) => {
   setContacts(prev =>
     deleteMessageByIdService(prev, contact_id, message_id)
   )
   }
-	
 	const addNewMessage = (text) => {
   const new_message = {
-    emisor: 'Yo',
+    emisor: 'YO',
     hora: '11:10',
     texto: text,
     status: 'no-visto',
     id: Date.now()
   }
-
+  
   setContacts(prev =>
   addNewMessageService(prev, contact_id, new_message)
   )
@@ -46,10 +42,6 @@ const ChatScreen = ({ contacts, setContacts }) => {
     [contact_id]: ''
   }))
   }
-
-	const deleteAllMesaages = () => {
-		setMessages([])
-	} 
 
 	const handleDraftChange = (text) => {
   setDrafts(prev => ({

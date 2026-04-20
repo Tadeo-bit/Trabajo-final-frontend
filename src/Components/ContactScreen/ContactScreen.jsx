@@ -7,12 +7,10 @@ import { getContactList } from '../../Services/contactService';
 const ContactScreen = ({ contacts, moveContactToTop }) => {
 
   return (
-    <div>
       <ContactList 
         contacts={contacts}
         moveContactToTop={moveContactToTop}
       />
-    </div>
   )
 };
 

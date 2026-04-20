@@ -1,17 +1,17 @@
 .contactos {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
-  height: 100%;
-  background-color: #ffffff;
+  flex: 1;
+  min-height: 0;
+  background-color: #202c33;
 }
 
 .encabezado-contactos {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem;
-  border-bottom: 1px solid #ddd;
+  padding: 0.75rem 1rem;
+  border-bottom: none;
 }
 
 .logo-whatsapp {
@@ -32,10 +32,24 @@
 .buscador-contactos {
   display: flex;
   align-items: center;
-  background-color: #f0f2f5;
-  border-radius: 2rem;
-  padding: 0.5rem 1rem;
-  margin: 0.75rem 1rem;
+
+  background-color: #111b21; 
+  border-radius: 999px;
+
+  padding: 0.6rem 0.9rem;
+  margin: 0.5rem 0.75rem;
+
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.buscador-contactos:hover {
+  background-color: #202c33;
+}
+
+.buscador-contactos:focus-within {
+  background-color: #202c33;
+  border-color: #00a884; /* verde WhatsApp */
 }
 
 .lupa-icono {
@@ -45,35 +59,93 @@
 }
 
 .campo-busqueda {
-  flex-grow: 1;
+  flex: 1;
+
   border: none;
   background: transparent;
   outline: none;
+
   font-size: 0.9rem;
-  color: #111;
+  color: #e9edef; /* 🔥 texto claro */
+
+  margin-left: 0.5rem;
+}
+
+.campo-busqueda::placeholder {
+  color: #8696a0;
+}
+
+.buscador-contactos:focus-within {
+  background-color: #202c33;
 }
 
 /* Filtros */
 .filtros-contactos {
   display: flex;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.75rem;
   overflow-x: auto;
 }
 
 .filtro {
   padding: 0.4rem 0.9rem;
-  border-radius: 1.2rem;
-  border: 1px solid #ccc;
+  padding: 0.35rem 0.8rem;
+
+  border-radius: 999px;
+  border: 1px solid #2a3942;
+
   background-color: transparent;
+  color: #8696a0;
+
   font-size: 0.8rem;
+  font-weight: 500;
+
   cursor: pointer;
-  color: #111;
+
+  transition: all 0.2s ease;
+}
+
+.filtro:hover {
+  background-color: #202c33;
+  color: #e9edef;
 }
 
 .filtro.activo {
   background-color: #005c4b;
-  color: white;
+  color: #e9edef;
   border-color: #005c4b;
 }
 
+.filtro.activo:hover {
+  background-color: #0b806a;
+}
+
+.lista-contactos {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #2a3942 #0b141a;
+}
+
+/* Scroll completo */
+.lista-contactos::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Fondo del scroll */
+.lista-contactos::-webkit-scrollbar-track {
+  background: #0b141a; /* oscuro */
+}
+
+/* Barra (lo que se mueve) */
+.lista-contactos::-webkit-scrollbar-thumb {
+  background-color: #2a3942; /* gris */
+  border-radius: 10px;
+}
+
+/* Hover de la barra */
+.lista-contactos::-webkit-scrollbar-thumb:hover {
+  background-color: #3b4a54;
+}

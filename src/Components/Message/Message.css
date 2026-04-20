@@ -1,32 +1,39 @@
 .mensaje {
   display: flex;
-  padding: 0.5rem;
-  max-width: 70%;
+  width: 100%; /* ocupa todo el ancho del contenedor */
   margin-bottom: 0.3rem;
-  word-wrap: break-word;
 }
 
+/* POSICIONAMIENTO (clave) */
 .mensaje-yo {
-  background-color: #dcf8c6; 
-  border-radius: 8px 0px 8px 8px;
-  align-self: flex-end;
-  margin-right: auto;
+  justify-content: flex-end;
 }
 
 .mensaje-contacto {
-  background-color: white;
-  border-radius: 0px 8px 8px 8px;
-  align-self: flex-start;
-  margin-left: auto;
+  justify-content: flex-start;
 }
 
-
+/* BURBUJA */
 .contenido-mensaje {
+  max-width: 70%;
   padding: 0.5rem 0.8rem;
   display: flex;
   flex-direction: column;
+  word-wrap: break-word;
 }
 
+/* ESTILO VISUAL SEGÚN EMISOR */
+.mensaje-yo .contenido-mensaje {
+  background-color: #dcf8c6;
+  border-radius: 8px 0px 8px 8px;
+}
+
+.mensaje-contacto .contenido-mensaje {
+  background-color: white;
+  border-radius: 0px 8px 8px 8px;
+}
+
+/* TEXTO */
 .texto-mensaje {
   margin-bottom: 0.3rem;
 }

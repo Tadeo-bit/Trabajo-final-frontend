@@ -4,6 +4,7 @@ import ContactScreen from '../ContactScreen/ContactScreen';
 import ChatScreen from '../ChatScreen/ChatScreen';
 import { getContactList } from '../../Services/contactService'
 import './Main.css';
+import "../../layout.css"
 import { moveContactToTop as moveContactToTopService, resetUnread } from '../../Services/contactService'
 
 const Main = () => {
