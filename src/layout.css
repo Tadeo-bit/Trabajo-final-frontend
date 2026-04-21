@@ -25,6 +25,11 @@
   display: flex;
   flex-direction: column;
   overflow: hidden; /* Evita scroll en todo el contenedor */
+  flex: 1;
+}
+
+.chat.pantalla-inicio {
+  background-color: #111b21;
 }
 
 /* --- Responsive --- */

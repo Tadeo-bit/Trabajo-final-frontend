@@ -1,63 +1,124 @@
 .pantalla-inicio {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #111b21;
+  padding: 2rem;
+}
+
+.contenedor-inicio {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
+}
+
+.card-inicio {
+  background-color: #202c33;
   padding: 2rem;
+  border-radius: 16px;
   text-align: center;
-  color: #54656f;
-  background-color: #f0f2f5;
+  max-width: 420px;
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25); /* clave */
 }
 
 .imagen-inicio {
-  width: 300px;
-  max-width: 80%;
-  margin-bottom: 2rem;
+  width: 220px;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .titulo-inicio {
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  color: #41525d;
+  font-size: 1.3rem;
+  color: #e9edef;
 }
 
 .descripcion-inicio {
-  max-width: 600px;
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  line-height: 1.5;
-  color: #667781;
+  font-size: 0.9rem;
+  color: #8696a0;
+  font-weight: 600;
+
 }
 
 .boton-descarga {
-  margin: 1rem 0;
-  padding: 0.7rem 1.5rem;
-  background-color: #25D366;
-  color: black;
-  font-size: 0.8rem;
+  margin-top: 1rem;
+
+  padding: 0.6rem 1.4rem;
+  background-color: #00a884;
+  color: white;
+
+  font-size: 0.9rem;
   font-weight: 600;
+
   border: none;
-  border-radius: 20px;
+  border-radius: 999px;
+
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
 .boton-descarga:hover {
-  background-color: #1ebe5d;
+  background-color: #008f72;
 }
 
-.privacidad-inicio {
+.acciones-inicio {
+  display: flex;
+  justify-content: center;
+  gap: 2.2rem; /* 👈 más aire */
+  margin-top: 2.5rem;
+}
+
+.accion {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  color: gray;
-  margin-top: auto;
-  margin-bottom: 2rem;
+
+  width: 90px;
+  height: 90px;
+
+  background-color: #202c33;
+  border-radius: 16px;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
+
+.accion:hover {
+  background-color: #2a3942;
+  transform: translateY(-2px); /* 👈 micro interacción */
+}
+
+.accion i {
+  font-size: 1.2rem; /* más grande */
+  color: #00a884;
+  line-height: 1; /* evita desalineaciones raras */
+}
+
+.accion-texto {
+  margin-top: 0.7rem;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  color: #e9edef; /* 👈 más blanco */
+  opacity: 0.85;
+
+  text-align: center;
+}
+
+.accion span {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #8696a0;
+}
+
 
 /* Responsive  */
 @media (max-width: 480px) {
