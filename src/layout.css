@@ -21,16 +21,13 @@
 /* Pantalla de chat */
 .chat {
   width: 70%;
-  background-color: #e5ddd5; /* Color similar a WhatsApp */
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Evita scroll en todo el contenedor */
-  flex: 1;
-}
+  overflow: hidden;
 
-.chat.pantalla-inicio {
   background-color: #111b21;
 }
+
 
 /* --- Responsive --- */
 

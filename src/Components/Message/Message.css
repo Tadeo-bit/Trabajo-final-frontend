@@ -1,7 +1,9 @@
 .mensaje {
   display: flex;
-  width: 100%; /* ocupa todo el ancho del contenedor */
+  width: 100%;
   margin-bottom: 0.3rem;
+
+  padding: 0 1rem; /* separación lateral */
 }
 
 /* POSICIONAMIENTO (clave) */
@@ -15,35 +17,49 @@
 
 /* BURBUJA */
 .contenido-mensaje {
-  max-width: 70%;
-  padding: 0.5rem 0.8rem;
+  max-width: 65%; 
+  padding: 0.6rem 0.9rem;
+
   display: flex;
   flex-direction: column;
+
   word-wrap: break-word;
+
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15); /* profundidad */
 }
 
 /* ESTILO VISUAL SEGÚN EMISOR */
 .mensaje-yo .contenido-mensaje {
-  background-color: #dcf8c6;
+  background-color: #004f40; 
+  color: #e9edef;
+
   border-radius: 8px 0px 8px 8px;
 }
 
 .mensaje-contacto .contenido-mensaje {
-  background-color: white;
+  background-color: #192227;
+  color: #e9edef;
+
   border-radius: 0px 8px 8px 8px;
 }
 
 /* TEXTO */
 .texto-mensaje {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  font-weight: 500;
 }
 
 .info-mensaje {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; 
   align-items: center;
-  font-size: 0.75rem;
-  color: #555;
+
+  font-size: 0.7rem;
+  color: #8696a0;
+
+  gap: 0.3rem;
 }
 
 .hora-mensaje {
@@ -54,6 +70,15 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #888;
-  font-size: 0.9rem;
+
+  color: #8696a0;
+  font-size: 0.85rem;
+
+  transition: color 0.2s ease, transform 0.1s ease;
+}
+
+/* Hover suave */
+.boton-eliminar:hover {
+  color: #e9edef; /* más claro */
+  transform: scale(1.1); /* leve feedback */
 }

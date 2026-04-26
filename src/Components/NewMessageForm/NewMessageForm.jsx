@@ -17,7 +17,7 @@ const NewMessageForm = ({ addNewMessage, draftValue, onDraftChange }) => {
         
         <input
           type="text"
-          placeholder="Escribe un mensaje..."
+          placeholder="Escribe un mensaje"
           className="input-mensaje"
           value={draftValue}
           onChange={(e) => onDraftChange(e.target.value)}

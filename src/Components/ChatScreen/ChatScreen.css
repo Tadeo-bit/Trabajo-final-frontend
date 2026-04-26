@@ -2,23 +2,40 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 0;
   overflow: hidden;
   position: relative;
 }
 
-/* NUEVO HEADER */
+/* HEADER GENERAL */
 .encabezado-chat {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f0f2f5;
+
+  background-color: #202c33; /* dark mode coherente */
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid #ccc;
   height: 65px;
+
+  border-bottom: 1px solid #2a3942;
 }
 
-/* Parte izquierda del header: avatar + nombre */
+/* GRUPO IZQUIERDA */
+.grupo-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* BOTÓN VOLVER */
+.boton-volver-movil {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+
+/* INFO CONTACTO */
 .info-contacto {
   display: flex;
   align-items: center;
@@ -35,9 +52,10 @@
 .nombre-contacto {
   font-weight: 600;
   font-size: 1rem;
+  color: #e9edef; /* texto claro */
 }
 
-/* Parte derecha: íconos */
+/* ACCIONES DERECHA */
 .acciones-chat {
   display: flex;
   align-items: center;
@@ -46,37 +64,29 @@
 
 .icono-chat {
   font-size: 1.2rem;
-  color: #54656f;
+  color: #aebac1;
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
 .icono-chat:hover {
-  color: #000;
+  color: #ffffff;
 }
 
-/* Botón de volver (oculto por defecto) */
-.boton-volver-movil {
-  display: none;
-  background: none;
-  border: none;
-  padding: 0.3rem;
-  margin-right: 0.5rem;
-  cursor: pointer;
-}
+/* MOBILE */
 
-/* Responsive para pantallas pequeñas */
 @media (max-width: 480px) {
+  
   .boton-volver-movil {
     display: block;
   }
 
   .encabezado-chat {
-    flex-direction: column;
-    align-items: flex-start;
-    height: auto;
-    gap: 0.5rem;
-    padding-left: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .grupo-izquierda {
+    gap: 0.3rem;
   }
 
   .info-contacto {
@@ -84,11 +94,7 @@
   }
 
   .acciones-chat {
-    align-self: flex-end;
-    gap: 0.5rem;
+    gap: 0.7rem;
   }
 
-  .acciones-chat i {
-    font-size: 1.2rem;
-  }
 }

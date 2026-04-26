@@ -53,27 +53,39 @@ const ChatScreen = ({ contacts, setContacts }) => {
 	return (
   <div className="pantalla-chat">
     <div className="encabezado-chat">
-      {/* Botón de regreso (solo visible en mobile) */}
-      <button className="boton-volver-movil" onClick={() => navigate('/')}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#54656f" viewBox="0 0 16 16">
-          <path fillRule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H3.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L3.707 7.5H14.5a.5.5 0 0 1 .5.5z"/>
-        </svg>
-      </button>
 
-      <div className="info-contacto">
-        <img
-          src={`/Images/avatar_${contact_id}.jpg`}
-          alt={contact_selected.name}
-          className="avatar-contacto"
-        />
-        <span className="nombre-contacto">{contact_selected.name}</span>
+      {/* GRUPO IZQUIERDA */}
+      <div className="grupo-izquierda">
+        
+        <button 
+          className="boton-volver-movil" 
+          onClick={() => navigate('/')}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#54656f" viewBox="0 0 16 16">
+            <path fillRule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H3.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L3.707 7.5H14.5a.5.5 0 0 1 .5.5z"/>
+          </svg>
+        </button>
+
+        <div className="info-contacto">
+          <img
+            src={`/Images/avatar_${contact_id}.jpg`}
+            alt={contact_selected.name}
+            className="avatar-contacto"
+          />
+          <span className="nombre-contacto">
+            {contact_selected.name}
+          </span>
+        </div>
+
       </div>
 
+      {/* DERECHA */}
       <div className="acciones-chat">
         <i className="bi bi-camera-video-fill icono-chat"></i>
         <i className="bi bi-search icono-chat"></i>
         <i className="bi bi-three-dots-vertical icono-chat"></i>
       </div>
+
     </div>
 
     <MessagesList
@@ -82,9 +94,9 @@ const ChatScreen = ({ contacts, setContacts }) => {
     />
 
     <NewMessageForm
-  	addNewMessage={addNewMessage}
-    draftValue={drafts[contact_id] || ''}
-    onDraftChange={handleDraftChange}
+      addNewMessage={addNewMessage}
+      draftValue={drafts[contact_id] || ''}
+      onDraftChange={handleDraftChange}
     />
   </div>
 )

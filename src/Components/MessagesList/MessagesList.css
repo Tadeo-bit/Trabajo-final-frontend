@@ -6,6 +6,48 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contenedor-mensajes::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url('/Images/pattern.jpg');
+  background-repeat: repeat;
+  background-size: 300px;
+
+  opacity: 0.015;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contenedor-mensajes::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Fondo del scroll */
+.contenedor-mensajes::-webkit-scrollbar-track {
+  background: #0b141a;
+}
+
+/* Barra */
+.contenedor-mensajes::-webkit-scrollbar-thumb {
+  background-color: #2a3942;
+  border-radius: 10px;
+}
+
+/* Hover */
+.contenedor-mensajes::-webkit-scrollbar-thumb:hover {
+  background-color: #3b4a54;
+}
+
+/* Firefox */
+.contenedor-mensajes {
+  scrollbar-width: thin;
+  scrollbar-color: #2a3942 #0b141a;
 }
 
 

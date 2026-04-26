@@ -1,47 +1,83 @@
+/* CONTENEDOR GENERAL */
 .formulario-nuevo-mensaje-contenedor {
-  padding: 0.5rem;
-  border-top: 1px solid #ccc;
-  background-color: #f0f0f0;
+  padding: 0.5rem 0.8rem;
+  padding-bottom: 1.2rem; 
+
+  background-color: transparent;
+  border-top: none; 
 
   position: sticky;
   bottom: 0;
   z-index: 10;
 }
 
+/* FORM */
 .formulario-nuevo-mensaje {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
+/* INPUT */
 .input-mensaje {
   flex: 1;
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
+
+  padding: 0.75rem 1.2rem; /* más alto */
+  font-size: 0.95rem;
+  font-weight: 700; 
+
   border: none;
-  border-radius: 20px;
-  background-color: white;
+  border-radius: 999px;
+
+  background-color: #2a3942;
+  color: #e9edef;
+
   outline: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
+/* Placeholder */
+.input-mensaje::placeholder {
+  color: #aebac1; 
+  font-weight: 500; 
+}
+
+/* Focus (clave UX) */
+.input-mensaje:focus {
+  background-color: #2f3e46;
+}
+
+/* BOTÓN */
 .boton-enviar {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
+
   background-color: #00a884;
   border-radius: 50%;
+
   border: none;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
+
   cursor: pointer;
-  transition: background-color 0.3s ease;
+
+  transition: transform 0.1s ease, background-color 0.2s ease;
 }
 
+/* Hover */
 .boton-enviar:hover {
   background-color: #029073;
+  transform: scale(1.05);
 }
 
+/* Active (click) */
+.boton-enviar:active {
+  transform: scale(0.95);
+}
+
+/* Icono */
 .boton-enviar svg {
   fill: white;
 }
