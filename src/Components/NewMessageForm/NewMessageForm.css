@@ -24,7 +24,7 @@
 
   padding: 0.75rem 1.2rem; /* más alto */
   font-size: 0.95rem;
-  font-weight: 700; 
+  font-weight: 500; 
 
   border: none;
   border-radius: 999px;
@@ -39,7 +39,7 @@
 /* Placeholder */
 .input-mensaje::placeholder {
   color: #aebac1; 
-  font-weight: 500; 
+  font-weight: 550; 
 }
 
 /* Focus (clave UX) */

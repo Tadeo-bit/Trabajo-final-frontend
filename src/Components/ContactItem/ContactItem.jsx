@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ContactItem.css'; 
+import { getUnreadCount } from '../../Services/contactService';
 
 const ContactItem = ({ contact, moveContactToTop }) => {
 
@@ -39,10 +40,10 @@ const ContactItem = ({ contact, moveContactToTop }) => {
             {lastMessage ? lastMessage.texto : ""}
           </span>
 
-          {contact.unread > 0 && (
-            <span className="contacto-unread">
-              {contact.unread}
-            </span>
+          {getUnreadCount(contact.messages) > 0 && (
+          <span className="badge">
+            {getUnreadCount(contact.messages)}
+          </span>
           )}
         </div>
 

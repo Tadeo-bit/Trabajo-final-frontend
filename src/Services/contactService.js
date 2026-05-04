@@ -1,131 +1,70 @@
 const contacts = [
   {
-    id : 1,
-    name: 'Pedro',
-    description: 'solo se vive una vez',
-    avatar: '/Images/avatar_1.jpg',
-    last_connection: '15:53',
-    connection_status: 'ofline',
-    unread: 2,
-    messages: [
-  {
-		emisor: 'YO',
-		hora: '23:10',
-		id: 1,
-		texto: 'Hola',
-		status: 'visto'
-	},
-	{
-		emisor: 'OTRO',
-		hora: '23:11',
-		id: 2,
-		texto: 'Hola que tal?',
-		status: 'visto'
-	},
-	{
-		emisor: 'YO',
-		hora: '23:12',
-		id: 3,
-		texto: 'Todo esta bien?',
-		status: 'visto'
-	},
-	{
-		emisor: 'OTRO',
-		hora: '23:14',
-		id: 4,
-		texto: 'Sí, más vale',
-		status: 'visto'
-	}
-    ]
+  id: 1,
+  name: 'Pedro',
+  description: 'solo se vive una vez',
+  avatar: '/Images/avatar_1.jpg',
+  last_connection: '15:53',
+  connection_status: 'ofline',
+  messages: [
+    { emisor: 'YO', hora: '23:10', id: 1, texto: 'Hola', status: 'visto' },
+    { emisor: 'OTRO', hora: '23:11', id: 2, texto: 'Hola que tal?', status: 'visto' },
+    { emisor: 'YO', hora: '23:12', id: 3, texto: 'Todo esta bien?', status: 'visto' },
+
+    { emisor: 'OTRO', hora: '23:14', id: 4, texto: 'Sí, más vale', status: 'no-visto' },
+    { emisor: 'OTRO', hora: '23:15', id: 5, texto: '¿Seguís ahí?', status: 'no-visto' }
+  ]
   },
   {
-    id : 2,
-    name: 'Juan',
-    description: 'el que abandona no tiene premio',
-    avatar: '/Images/avatar_2.jpg',
-    last_connection: '15:55',
-    connection_status: 'online',
-    unread: 0,
-    messages: [
-  {
-		emisor: 'YO',
-		hora: '21:03',
-		id: 1,
-		texto: '¿Estás en casa?',
-		status: 'visto'
-	},
-	{
-		emisor: 'OTRO',
-		hora: '21:04',
-		id: 2,
-		texto: 'Sí, recién llego',
-		status: 'visto'
-	},
-	{
-		emisor: 'YO',
-		hora: '21:05',
-		id: 3,
-		texto: 'Tengo tus llaves, ¿te las alcanzo?',
-		status: 'visto'
-	},
-	{
-		emisor: 'OTRO',
-		hora: '21:06',
-		id: 4,
-		texto: 'Uy, gracias. ¿Podés venir tipo 9:30?',
-		status: 'visto'
-	},
-	{
-		emisor: 'YO',
-		hora: '21:07',
-		id: 5,
-		texto: 'Dale, te aviso cuando salga',
-		status: 'visto'
-	}
-    ]
-  },
-   {
-    id: 3,
-    name: 'Lucía',
-    description: 'Frontend lover 💻',
-    avatar: '/Images/avatar_3.jpg',
-    last_connection: '12:45',
-    connection_status: 'online',
-    unread: 0,
-    messages: [
-      { emisor: 'YO', hora: '09:01', id: 1, texto: 'Buen día! ¿Cómo vas con el proyecto?', status: 'visto' },
-      { emisor: 'OTRO', hora: '09:03', id: 2, texto: 'Buen día! Ayer avancé con los estilos del login', status: 'visto' },
-      { emisor: 'YO', hora: '09:05', id: 3, texto: '¿Usaste Tailwind al final?', status: 'visto' },
-      { emisor: 'OTRO', hora: '09:06', id: 4, texto: 'Sí, me costó un poco pero quedó prolijo', status: 'visto' },
-      { emisor: 'YO', hora: '09:07', id: 5, texto: 'Qué bien! Después pasame el repo así lo veo', status: 'visto' },
-      { emisor: 'OTRO', hora: '09:08', id: 6, texto: 'Dale! Y te paso también el login con validación', status: 'visto' },
-      { emisor: 'YO', hora: '09:09', id: 7, texto: 'Perfecto, eso me re sirve', status: 'visto' },
-      { emisor: 'OTRO', hora: '09:10', id: 8, texto: '¿Cómo venís vos con el chat?', status: 'visto' },
-      { emisor: 'YO', hora: '09:12', id: 9, texto: 'Lo tengo andando, pero sin contexto aún', status: 'visto' },
-      { emisor: 'OTRO', hora: '09:13', id: 10, texto: '¡Vamos! Lo importante es que funcione 😅', status: 'visto' }
-    ]
+  id: 2,
+  name: 'Juan',
+  description: 'el que abandona no tiene premio',
+  avatar: '/Images/avatar_2.jpg',
+  last_connection: '15:55',
+  connection_status: 'online',
+  messages: [
+    { emisor: 'YO', hora: '21:03', id: 1, texto: '¿Estás en casa?', status: 'visto' },
+    { emisor: 'OTRO', hora: '21:04', id: 2, texto: 'Sí, recién llego', status: 'visto' },
+    { emisor: 'YO', hora: '21:05', id: 3, texto: 'Tengo tus llaves, ¿te las alcanzo?', status: 'visto' },
+
+    { emisor: 'OTRO', hora: '21:06', id: 4, texto: 'Uy, gracias. ¿Podés venir tipo 9:30?', status: 'no-visto' },
+    { emisor: 'OTRO', hora: '21:07', id: 5, texto: 'Estoy en casa', status: 'no-visto' },
+    { emisor: 'OTRO', hora: '21:08', id: 6, texto: 'Avisame cuando salgas', status: 'no-visto' }
+  ]
   },
   {
-    id: 4,
-    name: 'Pedro',
-    description: 'Un día a la vez',
-    avatar: '/Images/avatar_4.jpg',
-    last_connection: '10:22',
-    connection_status: 'ofline',
-    unread: 10,
-    messages: [
-      { emisor: 'YO', hora: '18:30', id: 1, texto: '¿Probaste la API de clima que te pasé?', status: 'visto' },
-      { emisor: 'OTRO', hora: '18:32', id: 2, texto: 'Sí! Es bastante clara, me gustó', status: 'visto' },
-      { emisor: 'YO', hora: '18:33', id: 3, texto: '¿La integraste con algún componente?', status: 'visto' },
-      { emisor: 'OTRO', hora: '18:35', id: 4, texto: 'Con uno funcional, me costó usar useEffect', status: 'visto' },
-      { emisor: 'YO', hora: '18:36', id: 5, texto: 'A mí también me confunde a veces', status: 'visto' },
-      { emisor: 'OTRO', hora: '18:37', id: 6, texto: 'Pero ya muestra el clima de Córdoba 😄', status: 'visto' },
-      { emisor: 'YO', hora: '18:38', id: 7, texto: 'Eso es clave. ¿Pusiste íconos?', status: 'visto' },
-      { emisor: 'OTRO', hora: '18:39', id: 8, texto: 'Sí, con FontAwesome. Quedó lindo', status: 'visto' },
-      { emisor: 'YO', hora: '18:41', id: 9, texto: '¡Me lo tenés que mostrar después!', status: 'visto' },
-      { emisor: 'OTRO', hora: '18:42', id: 10, texto: 'Obvio, te paso el link por GitHub Pages', status: 'visto' }
-    ]
+  id: 3,
+  name: 'Lucía',
+  description: 'Frontend lover 💻',
+  avatar: '/Images/avatar_3.jpg',
+  last_connection: '12:45',
+  connection_status: 'online',
+  messages: [
+    { emisor: 'YO', hora: '09:01', id: 1, texto: 'Buen día! ¿Cómo vas con el proyecto?', status: 'visto' },
+    { emisor: 'OTRO', hora: '09:03', id: 2, texto: 'Buen día! Ayer avancé...', status: 'visto' },
+    { emisor: 'YO', hora: '09:05', id: 3, texto: '¿Usaste Tailwind al final?', status: 'visto' },
+
+    { emisor: 'OTRO', hora: '09:06', id: 4, texto: 'Sí, me costó un poco pero quedó prolijo', status: 'no-visto' }
+  ]
   },
+  {
+  id: 4,
+  name: 'Pedro',
+  description: 'Un día a la vez',
+  avatar: '/Images/avatar_4.jpg',
+  last_connection: '10:22',
+  connection_status: 'ofline',
+  messages: [
+    { emisor: 'YO', hora: '18:30', id: 1, texto: '¿Probaste la API de clima?', status: 'visto' },
+    { emisor: 'OTRO', hora: '18:32', id: 2, texto: 'Sí! Es bastante clara', status: 'visto' },
+    { emisor: 'YO', hora: '18:33', id: 3, texto: '¿La integraste?', status: 'visto' },
+
+    { emisor: 'OTRO', hora: '18:35', id: 4, texto: 'Sí, pero me costó useEffect', status: 'no-visto' },
+    { emisor: 'OTRO', hora: '18:36', id: 5, texto: 'Igual ya funciona', status: 'no-visto' },
+    { emisor: 'OTRO', hora: '18:37', id: 6, texto: 'Muestra el clima de Córdoba 😄', status: 'no-visto' },
+    { emisor: 'OTRO', hora: '18:38', id: 7, texto: 'Después te muestro', status: 'no-visto' }
+  ]
+},
   {
     id: 5,
     name: 'Sofía',
@@ -253,24 +192,11 @@ export const addNewMessage = (contacts, contact_id, new_message) => {
     contact_id,
     (contact) => ({
       ...contact,
-      messages: [...(contact.messages || []), new_message],
-      unread: new_message.emisor !== 'YO'
-        ? (contact.unread || 0) + 1
-        : contact.unread || 0
+      messages: [...(contact.messages || []), new_message]
     })
   )
 }
 
-export const resetUnread = (contacts, contact_id) => {
-  return updateContact(
-    contacts,
-    contact_id,
-    (contact) => ({
-      ...contact,
-      unread: 0
-    })
-  )
-}
 
 export const deleteMessageById = (contacts, contact_id, message_id) => {
   return updateContact(
@@ -285,6 +211,27 @@ export const deleteMessageById = (contacts, contact_id, message_id) => {
   )
 }
 
+export const markMessagesAsRead = (contacts, contact_id) => {
+  return updateContact(
+    contacts,
+    contact_id,
+    (contact) => ({
+      ...contact,
+      messages: (contact.messages || []).map(m =>
+        m.emisor === 'OTRO'
+          ? { ...m, status: 'visto' }
+          : m
+      )
+    })
+  )
+}
+
+export const getUnreadCount = (messages) => {
+  return messages.filter(
+    msg => msg.emisor === 'OTRO' && msg.status !== 'visto'
+  ).length;
+};
+
 export const getContactList = () => {
     return contacts
 }
@@ -298,7 +245,3 @@ export const getContactById = (contact_id) => {
     return null
 }
 
-/*Los servicio van a tener la lógica de negocio de mi aplicación, 
-no es exclusivo de reacts, la lógica de negocio tiene que ver con las
-posibilidades que brinda mi aplicación
-*/

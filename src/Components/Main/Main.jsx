@@ -5,7 +5,8 @@ import ChatScreen from '../ChatScreen/ChatScreen';
 import { getContactList } from '../../Services/contactService'
 import './Main.css';
 import "../../layout.css"
-import { moveContactToTop as moveContactToTopService, resetUnread } from '../../Services/contactService'
+import { moveContactToTop as moveContactToTopService } from '../../Services/contactService'
+import { markMessagesAsRead } from '../../Services/contactService';
 
 const Main = () => {
   const { contact_id } = useParams();
@@ -48,11 +49,11 @@ const Main = () => {
   const moveContactToTop = (contact_id) => {
   setContacts(prev =>
     moveContactToTopService(
-      resetUnread(prev, contact_id),
+      markMessagesAsRead(prev, contact_id),
       contact_id
-      )
     )
-  }
+  )
+}
 
   return (
 <div className="main-layout">
