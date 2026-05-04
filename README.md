@@ -21,4 +21,4 @@ Aplicación de mensajería estilo WhatsApp Web desarrollada en React.
 - Diseño responsive
 
 ## Deploy
-https://trabajo-final-frontend-mu.vercel.app/ 
+https://whatsapp-clone-tadeo-dev.vercel.app/
